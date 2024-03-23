@@ -4,7 +4,7 @@ const botaoVoltar = document.getElementById("anterior");
 const nomeCapitulo = document.getElementById("capitulo");
 const audioCapitulo = document.getElementById("audio-capitulo");
 
-const numeroCapitulos = 10;
+const numeroCapitulos = 12;
 let taTocando = 0;
 let capituloAtual = 1;
 
@@ -38,7 +38,7 @@ function proximaFaixa() {
     } else {
         capituloAtual = capituloAtual + 1
     }
-    audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + '.mp3';
+    audioCapitulo.src = "./books/jurassic-park/" + capituloAtual + '.mp3';
     tocarFaixa();
     taTocando = 1;
     trocarNomeFaixa();
@@ -50,7 +50,7 @@ function voltarFaixa() {
     } else {
         capituloAtual = capituloAtual - 1
     }
-    audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + '.mp3';
+    audioCapitulo.src = "./books/jurassic-park/" + capituloAtual + '.mp3';
     tocarFaixa();
     taTocando = 1;
     trocarNomeFaixa()
