@@ -1,61 +1,61 @@
-const botaoPlayPause = document.getElementById("play-pause");
-const botaoAvançar = document.getElementById("proximo");
-const botaoVoltar = document.getElementById("anterior");
-const nomeCapitulo = document.getElementById("capitulo");
-const audioCapitulo = document.getElementById("audio-capitulo");
+const buttonPlayPause = document.getElementById("play-pause");
+const forwardbutton = document.getElementById("next");
+const backButton = document.getElementById("previous");
+const chapterName = document.getElementById("chapter");
+const audioChapter = document.getElementById("audio-chapter");
 
-const numeroCapitulos = 12;
-let taTocando = 0;
-let capituloAtual = 1;
+const numbers = 12;
+let playing = 0;
+let chapter = 1;
 
-function tocarFaixa() {
-    audioCapitulo.play();
-    botaoPlayPause.classList.remove("bi-play-circle-fill");
-    botaoPlayPause.classList.add("bi-pause-circle-fill");
+function playTrack() {
+    audioChapter.play();
+    buttonPlayPause.classList.remove("bi-play-circle-fill");
+    buttonPlayPause.classList.add("bi-pause-circle-fill");
 }
-function pausarFaixa() {
-    audioCapitulo.pause();
-    botaoPlayPause.classList.add("bi-play-circle-fill");
-    botaoPlayPause.classList.remove("bi-pause-circle-fill");
+function pauseTrack() {
+    audioChapter.pause();
+    buttonPlayPause.classList.add("bi-play-circle-fill");
+    buttonPlayPause.classList.remove("bi-pause-circle-fill");
 }
-function tocarOuPausar() {
-    if (taTocando === 0) {
-        tocarFaixa();
-        taTocando = 1;
+function  PlayOrPause() {
+    if (playing === 0) {
+        playTrack();
+        playing = 1;
     } else {
-        pausarFaixa();
-        taTocando = 0;
+        pauseTrack();
+        playing = 0;
     }
 }
 
-function trocarNomeFaixa() {
-    nomeCapitulo.innerText = 'Chapter ' + capituloAtual;
+function ChangeTrackName() {
+    chapterName.innerText = 'Chapter ' + chapter;
 }
 
-function proximaFaixa() {
-    if (capituloAtual === numeroCapitulos) {
-        capituloAtual = 1;
+function NextTrack() {
+    if (chapter === numbers) {
+        chapter = 1;
     } else {
-        capituloAtual = capituloAtual + 1
+        chapter = chapter + 1
     }
-    audioCapitulo.src = "./books/jurassic-park/" + capituloAtual + '.mp3';
-    tocarFaixa();
-    taTocando = 1;
-    trocarNomeFaixa();
+    audioChapter.src = "./books/jurassic-park/" + chapter + '.mp3';
+    playTrack();
+    playing = 1;
+    ChangeTrackName();
 }
 
-function voltarFaixa() {
-    if (capituloAtual === 1 ) {
-        capituloAtual = numeroCapitulos;
+function BackTrack() {
+    if (chapter === 1 ) {
+        chapter = numbers;
     } else {
-        capituloAtual = capituloAtual - 1
+        chapter = chapter - 1
     }
-    audioCapitulo.src = "./books/jurassic-park/" + capituloAtual + '.mp3';
-    tocarFaixa();
-    taTocando = 1;
-    trocarNomeFaixa()
+    audioChapter.src = "./books/jurassic-park/" + chapter + '.mp3';
+    playTrack();
+    playing = 1;
+    ChangeTrackName()
 }
 
-botaoPlayPause.addEventListener("click", tocarOuPausar);
-botaoAvançar.addEventListener("click", proximaFaixa);
-botaoVoltar.addEventListener("click", voltarFaixa);
+buttonPlayPause.addEventListener("click", PlayOrPause);
+forwardbutton.addEventListener("click", NextTrack);
+backButton.addEventListener("click", BackTrack);
