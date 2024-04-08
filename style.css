@@ -9,7 +9,7 @@ body {
   background-color: rgb(159, 8, 8);
   background-size: cover;
   background-position: center;
-  
+
   
   
 }
@@ -61,9 +61,3 @@ button {
   justify-content: space-around;
 }
 
-.florest {
-  position: absolute;
-  top: 10%;
-  align-items: center;
-
-}
